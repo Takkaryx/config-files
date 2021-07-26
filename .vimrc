@@ -1,0 +1,22 @@
+syntax on
+set tabstop=4
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set display+=lastline
+set encoding=utf-8
+set linebreak
+set scrolloff=1
+set wrap
+set laststatus=2
+set ruler
+set cursorline
+set number
+set noerrorbells
+set visualbell
+set title
+set background=dark
+set history=1000
+set foldmethod=syntax
+autocmd BufWritePre * %s/\s\+$//e
