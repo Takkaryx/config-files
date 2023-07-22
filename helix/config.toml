@@ -1,0 +1,32 @@
+theme = "dark_high_contrast"
+
+[editor]
+auto-completion = true
+line-number = "absolute"
+auto-format = true
+auto-info = true
+bufferline = "always"
+color-modes = true
+completion-trigger-len = 3
+text-width = 80
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.whitespace]
+render = "all"
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["file-modification-indicator", "mode", "spinner", "total-line-numbers", "workspace-diagnostics"]
+center = ["file-type", "file-name"]
+right = ["diagnostics", "selections", "position", "file-line-ending"]
+separator = "|"
+
