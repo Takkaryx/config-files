@@ -1,4 +1,9 @@
 [[language]]
+name = "rust"
+formatter = { command = "rustfmt --edition 2021" }
+auto-format = true
+
+[[language]]
 name = "protobuf"
 file-types = ["proto"]
 auto-format = true
@@ -17,7 +22,6 @@ injection-regex = "c"
 file-types = ["c"] # TODO: ["h"]
 roots = []
 comment-token = "//"
-language-server = { command = "clangd" }
 indent = { tab-width = 2, unit = "  " }
 auto-format = false
 
@@ -61,7 +65,6 @@ injection-regex = "cpp"
 file-types = ["cc", "hh", "c++", "cpp", "hpp", "h", "ipp", "tpp", "cxx", "hxx", "ixx", "txx", "ino"]
 roots = []
 comment-token = "//"
-language-server = { command = "clangd" }
 indent = { tab-width = 2, unit = "  " }
 auto-format = false
 
@@ -116,9 +119,7 @@ scope = "source.css"
 injection-regex = "css"
 file-types = ["css", "scss"]
 roots = []
-language-server = { command = "css-languageserver", args = ["--stdio"] }
 auto-format = true
-config = { "provideFormatter" = true }
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
@@ -131,9 +132,7 @@ scope = "source.scss"
 injection-regex = "scss"
 file-types = ["scss"]
 roots = []
-language-server = { command = "vscode-css-language-server", args = ["--stdio"] }
 auto-format = true
-config = { "provideFormatter" = true }
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
@@ -146,9 +145,7 @@ scope = "source.json"
 injection-regex = "json"
 file-types = ["json", "jsonc"]
 roots = []
-language-server = { command = "vscode-json-languageserver", args = ["--stdio"] }
 auto-format = true
-config = { "provideFormatter" = true }
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
