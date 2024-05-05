@@ -1,7 +1,20 @@
 [[language]]
 name = "rust"
-formatter = { command = "rustfmt --edition 2021" }
 auto-format = true
+
+[language.formatter]
+command = 'rustfmt'
+
+[language.debugger]
+name = "lldb-dap"
+transport = "stdio"
+command = "lldb-dap"
+ 
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { program = "{0}", initCommands = [ "command script import /opt/homebrew/Cellar/rust/1.71.0/lib/rustlib/etc/lldb_lookup.py", "command source -s 0 /opt/homebrew/Cellar/rust/1.71.0/lib/rustlib/etc/lldb_commands" ] }
 
 [[language]]
 name = "protobuf"

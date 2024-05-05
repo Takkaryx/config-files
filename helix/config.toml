@@ -9,6 +9,7 @@ bufferline = "always"
 color-modes = true
 completion-trigger-len = 3
 text-width = 80
+auto-pairs = false
 
 [editor.lsp]
 display-messages = true
@@ -30,3 +31,10 @@ center = ["file-type", "file-name"]
 right = ["diagnostics", "selections", "position", "file-line-ending"]
 separator = "|"
 
+[keys.normal]
+X = "extend_line_above"
+
+[keys.normal."space"]
+o = "file_picker_in_current_buffer_directory"
+l = ":sh zellij action new-pane -fc -n 'lazygit' --height=80% --width=80% -x=10% -y=10% -- 'lazygit'"
+i = ":sh zellij run -f -n 'yazi picker' --height=80% --width=80% -x=10% -y=10% -- '/Users/<>/.config/helix/scripts/yazi-picker.sh'"
