@@ -2,7 +2,7 @@ layout {
     default_tab_template {
         children
         pane size=1 borderless=true {
-            plugin location="file:/Users/<>/.config/zellij/plugins/zjstatus.wasm" {
+            plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
                 format_left   "{mode} #[fg=#1a1a1a,bold]{session}"
                 format_center "{tabs}"
                 format_right  "{command_git_branch} {datetime}"
@@ -41,7 +41,7 @@ layout {
     tab name="Yazi" {
         pane command="yazi" close_on_exit=true
     }
-    tab name="Obsidian" cwd="/Users/<>/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian"
+    tab name="Obsidian" cwd="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian"
     tab name="git" {
         pane command="lazygit" close_on_exit=true
     }

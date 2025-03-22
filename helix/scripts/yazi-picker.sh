@@ -1,12 +1,11 @@
 #!/bin/bash
+paths=$(yazi $(pwd)/$1 --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
 
-# open_in_helix_from_yazi.sh
-tmpfile=/tmp/yazi-choice.txt
-rm -f $tmpfile
-yazi --chooser-file=$tmpfile
-zellij action toggle-floating-panes
-zellij action write 27 # send escape-key
-zellij action write-chars ":open $(tr '\n' ' ' < $tmpfile)"
-zellij action write 13 # send enter-key
-zellij action toggle-floating-panes
-zellij action close-pane
+if [[ -n "$paths" ]]; then
+	zellij action toggle-floating-panes
+	zellij action write 27 # send <Escape> key
+	zellij action write-chars ":o $1 $paths"
+	zellij action write 13 # send <Enter> key
+else
+	zellij action toggle-floating-panes
+fi

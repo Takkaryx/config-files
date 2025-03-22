@@ -1,9 +1,19 @@
+#cargo owl
+# [language-server.cargo-owlsp]
+# command = "cargo-owlsp"
+
+# [[language]]
+# name = "rust"
+# auto-format = true
+# language-servers = ["cargo-owlsp","rust-analyzer"]
+
 [[language]]
 name = "rust"
 auto-format = true
 
 [language.formatter]
 command = 'rustfmt'
+args = [ "--edition=2021" ]
 
 [language.debugger]
 name = "lldb-dap"
@@ -14,7 +24,7 @@ command = "lldb-dap"
 name = "binary"
 request = "launch"
 completion = [ { name = "binary", completion = "filename" } ]
-args = { program = "{0}", initCommands = [ "command script import /opt/homebrew/Cellar/rust/1.71.0/lib/rustlib/etc/lldb_lookup.py", "command source -s 0 /opt/homebrew/Cellar/rust/1.71.0/lib/rustlib/etc/lldb_commands" ] }
+args = { program = "{0}", initCommands = [ "command script import /opt/homebrew/Cellar/rust/1.85.0/lib/rustlib/etc/lldb_lookup.py", "command source -s 0 /opt/homebrew/Cellar/rust/1.85.0/lib/rustlib/etc/lldb_commands" ], runInTerminal = true }
 
 [[language]]
 name = "protobuf"
@@ -110,10 +120,6 @@ request = "attach"
 completion = [ { name = "lldb connect url", default = "connect://localhost:3333" }, { name = "file", completion = "filename" }, "pid" ]
 args = { console = "internalConsole", attachCommands = [ "platform select remote-gdb-server", "platform connect {0}", "file {1}", "attach {2}" ] }
 
-[[grammar]]
-name = "cpp"
-source = { git = "https://github.com/tree-sitter/tree-sitter-cpp", rev = "2d2c4aee8672af4c7c8edff68e7dd4c07e88d2b1" }
-
 [[language]]
 name = "python"
 auto-format = false
@@ -135,10 +141,6 @@ roots = []
 auto-format = true
 indent = { tab-width = 2, unit = "  " }
 
-[[grammar]]
-name = "css"
-source = { git = "https://github.com/tree-sitter/tree-sitter-css", rev = "769203d0f9abe1a9a691ac2b9fe4bb4397a73c51" }
-
 [[language]]
 name = "scss"
 scope = "source.scss"
@@ -147,10 +149,6 @@ file-types = ["scss"]
 roots = []
 auto-format = true
 indent = { tab-width = 2, unit = "  " }
-
-[[grammar]]
-name = "scss"
-source = { git = "https://github.com/serenadeai/tree-sitter-scss", rev = "c478c6868648eff49eb04a4df90d703dc45b312a" }
 
 [[language]]
 name = "json"
